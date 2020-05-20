@@ -22,14 +22,14 @@ fn main() {
     let pc_gens = PedersenGens::default();
     let bp_gens = BulletproofGens::new(2, 1);
     let proof:String=proof[0..834].to_string();
-    println!("proof..{}",proof);
+   // println!("proof..{}",proof);
    
     let proof=R1CSProof::from_bytes(&hex::decode(proof).unwrap())
                 .expect("Rangeproof deserialization failed");
     let mut split_commitments = commitments.split(" ");
     let mut v: Vec<&str> = split_commitments.collect();
-    println!("com1..{}{}",v[0].len(),v[0]);
-    println!("com2..{}{}",v[1].len(),v[1]);
+   // println!("com1..{}{}",v[0].len(),v[0]);
+   // println!("com2..{}{}",v[1].len(),v[1]);
     let mut commitments=Vec::new();
     commitments.push(CompressedRistretto::from_slice(
         &hex::decode(v[0].to_string())
